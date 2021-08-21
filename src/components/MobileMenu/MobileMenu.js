@@ -1,17 +1,17 @@
 /* eslint-disable no-unused-vars */
-import React from 'react';
-import styled from 'styled-components/macro';
-import { DialogOverlay, DialogContent } from '@reach/dialog';
+import React from 'react'
+import styled from 'styled-components/macro'
+import { DialogOverlay, DialogContent } from '@reach/dialog'
 
-import { QUERIES } from '../../constants';
+import { QUERIES } from '../../constants'
 
-import UnstyledButton from '../UnstyledButton';
-import Icon from '../Icon';
-import VisuallyHidden from '../VisuallyHidden';
+import UnstyledButton from '../UnstyledButton'
+import Icon from '../Icon'
+import VisuallyHidden from '../VisuallyHidden'
 
 const MobileMenu = ({ isOpen, onDismiss }) => {
   if (!isOpen) {
-    return null;
+    return null
   }
 
   return (
@@ -31,7 +31,7 @@ const MobileMenu = ({ isOpen, onDismiss }) => {
         <a href="/contact">Contact Us</a>
       </footer>
     </div>
-  );
-};
+  )
+}
 
-export default MobileMenu;
+export default MobileMenu

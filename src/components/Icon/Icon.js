@@ -1,12 +1,6 @@
-import React from 'react';
-import styled from 'styled-components/macro';
-import {
-  Search,
-  Menu,
-  ShoppingBag,
-  ChevronDown,
-  X,
-} from 'react-feather';
+import React from 'react'
+import styled from 'styled-components/macro'
+import { Search, Menu, ShoppingBag, ChevronDown, X } from 'react-feather'
 
 const icons = {
   search: Search,
@@ -14,21 +8,21 @@ const icons = {
   'shopping-bag': ShoppingBag,
   'chevron-down': ChevronDown,
   close: X,
-};
+}
 
 const Icon = ({ id, color, size, strokeWidth, ...delegated }) => {
-  const Component = icons[id];
+  const Component = icons[id]
 
   if (!Component) {
-    throw new Error(`No icon found for ID: ${id}`);
+    throw new Error(`No icon found for ID: ${id}`)
   }
 
   return (
     <Wrapper strokeWidth={strokeWidth} {...delegated}>
       <Component color={color} size={size} />
     </Wrapper>
-  );
-};
+  )
+}
 
 const Wrapper = styled.div`
   & > svg {
@@ -36,6 +30,6 @@ const Wrapper = styled.div`
     stroke-width: ${(p) =>
       p.strokeWidth !== undefined ? p.strokeWidth + 'px' : undefined};
   }
-`;
+`
 
-export default Icon;
+export default Icon

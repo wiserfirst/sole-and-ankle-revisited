@@ -1,10 +1,10 @@
-import React from 'react';
-import styled from 'styled-components/macro';
-import { COLORS } from '../../constants';
+import React from 'react'
+import styled from 'styled-components/macro'
+import { COLORS } from '../../constants'
 
 const Breadcrumbs = ({ children }) => {
-  return <Wrapper>{children}</Wrapper>;
-};
+  return <Wrapper>{children}</Wrapper>
+}
 
 Breadcrumbs.Crumb = ({ href, children, delegated }) => {
   return (
@@ -13,8 +13,8 @@ Breadcrumbs.Crumb = ({ href, children, delegated }) => {
         {children}
       </CrumbLink>
     </CrumbWrapper>
-  );
-};
+  )
+}
 
 const CrumbWrapper = styled.div`
   &:not(:first-of-type) {
@@ -26,7 +26,7 @@ const CrumbWrapper = styled.div`
       color: ${COLORS.gray[300]};
     }
   }
-`;
+`
 
 const CrumbLink = styled.a`
   color: ${COLORS.gray[700]};
@@ -35,10 +35,10 @@ const CrumbLink = styled.a`
   &:hover {
     color: ${COLORS.gray[900]};
   }
-`;
+`
 
 const Wrapper = styled.nav`
   display: flex;
   font-size: 0.875rem;
-`;
-export default Breadcrumbs;
+`
+export default Breadcrumbs
