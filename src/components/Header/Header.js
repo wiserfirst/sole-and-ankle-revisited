@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components/macro'
 
-import { COLORS, QUERIES, WEIGHTS } from '../../constants'
+import { QUERIES } from '../../constants'
 import Logo from '../Logo'
 import SuperHeader from '../SuperHeader'
 import MobileMenu from '../MobileMenu'
@@ -62,10 +62,10 @@ const MainHeader = styled.div`
   align-items: baseline;
   padding: 18px 32px;
   height: 72px;
-  border-bottom: 1px solid ${COLORS.gray[300]};
+  border-bottom: 1px solid var(--color-gray-300);
 
   @media ${QUERIES.tablet} {
-    border-top: 4px solid ${COLORS.gray[900]};
+    border-top: 4px solid var(--color-gray-900);
     justify-content: space-between;
   }
 `
@@ -87,11 +87,11 @@ const Side = styled.div`
 const MobileIcons = styled.div`
   display: none;
 
-    @media ${QUERIES.tablet} {
-      display: flex;
-      gap: 24px;
-      justify-content: flex-end;
-    }
+  @media ${QUERIES.tablet} {
+    display: flex;
+    gap: 24px;
+    justify-content: flex-end;
+  }
 `
 
 const SearchIcon = styled(Icon)`
@@ -103,11 +103,11 @@ const NavLink = styled.a`
   font-size: 1.125rem;
   text-transform: uppercase;
   text-decoration: none;
-  color: ${COLORS.gray[900]};
-  font-weight: ${WEIGHTS.medium};
+  color: var(--color-gray-900);
+  font-weight: var(--weight-medium);
 
   &:first-of-type {
-    color: ${COLORS.secondary};
+    color: var(--color-secondary);
   }
 `
 
