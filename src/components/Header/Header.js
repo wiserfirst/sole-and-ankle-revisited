@@ -72,7 +72,7 @@ const MainHeader = styled.div`
 
 const Nav = styled.nav`
   display: flex;
-  gap: 48px;
+  gap: clamp(1.5rem, 6vw - 2rem, 3rem);
   margin: 0px 48px;
 
   @media ${QUERIES.tablet} {
