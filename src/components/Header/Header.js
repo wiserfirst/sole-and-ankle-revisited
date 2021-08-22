@@ -32,7 +32,8 @@ const Header = () => {
           <NavLink href="/kids">Kids</NavLink>
           <NavLink href="/collections">Collections</NavLink>
         </Nav>
-        <Side>
+        <Side />
+        <MobileIcons>
           <UnstyledButton>
             <VisuallyHidden>Cart</VisuallyHidden>
             <Icon id="shopping-bag" strokeWidth={1} />
@@ -45,7 +46,7 @@ const Header = () => {
             <VisuallyHidden>Show menu</VisuallyHidden>
             <Icon id="menu" strokeWidth={1} />
           </UnstyledButton>
-        </Side>
+        </MobileIcons>
       </MainHeader>
 
       <MobileMenu
@@ -81,16 +82,16 @@ const Nav = styled.nav`
 
 const Side = styled.div`
   flex: 1;
+`
 
-  &:last-of-type {
-    display: none;
+const MobileIcons = styled.div`
+  display: none;
 
     @media ${QUERIES.tablet} {
       display: flex;
       gap: 24px;
       justify-content: flex-end;
     }
-  }
 `
 
 const SearchIcon = styled(Icon)`
