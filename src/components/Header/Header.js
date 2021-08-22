@@ -1,10 +1,13 @@
 import React from 'react'
 import styled from 'styled-components/macro'
 
-import { COLORS, WEIGHTS } from '../../constants'
+import { COLORS, QUERIES, WEIGHTS } from '../../constants'
 import Logo from '../Logo'
 import SuperHeader from '../SuperHeader'
 import MobileMenu from '../MobileMenu'
+import UnstyledButton from '../UnstyledButton'
+import Icon from '../Icon'
+import VisuallyHidden from '../VisuallyHidden'
 
 const Header = () => {
   const [showMobileMenu, setShowMobileMenu] = React.useState(false)
@@ -29,7 +32,20 @@ const Header = () => {
           <NavLink href="/kids">Kids</NavLink>
           <NavLink href="/collections">Collections</NavLink>
         </Nav>
-        <Side />
+        <Side>
+          <UnstyledButton>
+            <VisuallyHidden>Cart</VisuallyHidden>
+            <Icon id="shopping-bag" strokeWidth={1} />
+          </UnstyledButton>
+          <UnstyledButton>
+            <VisuallyHidden>Search</VisuallyHidden>
+            <SearchIcon id="search" strokeWidth={1} size={24} />
+          </UnstyledButton>
+          <UnstyledButton onClick={() => setShowMobileMenu(true)}>
+            <VisuallyHidden>Show menu</VisuallyHidden>
+            <Icon id="menu" strokeWidth={1} />
+          </UnstyledButton>
+        </Side>
       </MainHeader>
 
       <MobileMenu
@@ -46,16 +62,40 @@ const MainHeader = styled.div`
   padding: 18px 32px;
   height: 72px;
   border-bottom: 1px solid ${COLORS.gray[300]};
+
+  @media ${QUERIES.tablet} {
+    border-top: 4px solid ${COLORS.gray[900]};
+    justify-content: space-between;
+  }
 `
 
 const Nav = styled.nav`
   display: flex;
   gap: 48px;
   margin: 0px 48px;
+
+  @media ${QUERIES.tablet} {
+    display: none;
+  }
 `
 
 const Side = styled.div`
   flex: 1;
+
+  &:last-of-type {
+    display: none;
+
+    @media ${QUERIES.tablet} {
+      display: flex;
+      gap: 24px;
+      justify-content: flex-end;
+    }
+  }
+`
+
+const SearchIcon = styled(Icon)`
+  width: 24px;
+  height: 24px;
 `
 
 const NavLink = styled.a`
