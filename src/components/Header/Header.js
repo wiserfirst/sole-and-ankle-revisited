@@ -12,41 +12,36 @@ import VisuallyHidden from '../VisuallyHidden'
 const Header = () => {
   const [showMobileMenu, setShowMobileMenu] = React.useState(false)
 
-  // For our mobile hamburger menu, we'll want to use a button
-  // with an onClick handler, something like this:
-  //
-  // <button onClick={() => setShowMobileMenu(true)}>
-
   return (
     <header>
       <SuperHeader />
       <MainHeader>
-        <Side>
+        <LogoWrapper>
           <Logo />
-        </Side>
-        <Nav>
+        </LogoWrapper>
+        <DesktopNav>
           <NavLink href="/sale">Sale</NavLink>
           <NavLink href="/new">New&nbsp;Releases</NavLink>
           <NavLink href="/men">Men</NavLink>
           <NavLink href="/women">Women</NavLink>
           <NavLink href="/kids">Kids</NavLink>
           <NavLink href="/collections">Collections</NavLink>
-        </Nav>
-        <Side />
-        <MobileIcons>
-          <UnstyledButton>
-            <VisuallyHidden>Cart</VisuallyHidden>
-            <Icon id="shopping-bag" strokeWidth={1} />
-          </UnstyledButton>
+        </DesktopNav>
+        <Filler />
+        <MobileActions>
+          <ShoppingBagButton>
+            <VisuallyHidden>Open cart</VisuallyHidden>
+            <Icon id="shopping-bag" />
+          </ShoppingBagButton>
           <UnstyledButton>
             <VisuallyHidden>Search</VisuallyHidden>
-            <SearchIcon id="search" strokeWidth={1} size={24} />
+            <Icon id="search" />
           </UnstyledButton>
           <UnstyledButton onClick={() => setShowMobileMenu(true)}>
-            <VisuallyHidden>Show menu</VisuallyHidden>
-            <Icon id="menu" strokeWidth={1} />
+            <VisuallyHidden>Open menu</VisuallyHidden>
+            <Icon id="menu" />
           </UnstyledButton>
-        </MobileIcons>
+        </MobileActions>
       </MainHeader>
 
       <MobileMenu
@@ -61,16 +56,22 @@ const MainHeader = styled.div`
   display: flex;
   align-items: baseline;
   padding: 18px 32px;
-  height: 72px;
   border-bottom: 1px solid var(--color-gray-300);
+  overflow: auto;
 
   @media ${QUERIES.tablet} {
     border-top: 4px solid var(--color-gray-900);
     justify-content: space-between;
+    align-items: center;
+  }
+
+  @media ${QUERIES.phone} {
+    padding-left: 16px;
+    padding-right: 16px;
   }
 `
 
-const Nav = styled.nav`
+const DesktopNav = styled.nav`
   display: flex;
   gap: clamp(1.5rem, 6vw - 2rem, 3rem);
   margin: 0px 48px;
@@ -80,23 +81,32 @@ const Nav = styled.nav`
   }
 `
 
-const Side = styled.div`
+const LogoWrapper = styled.div`
   flex: 1;
+
+  @media ${QUERIES.tablet} {
+    flex: revert;
+  }
+`
+const Filler = styled.div`
+  flex: 1;
+
+  @media ${QUERIES.tablet} {
+    display: none;
+  }
 `
 
-const MobileIcons = styled.div`
+const MobileActions = styled.div`
   display: none;
 
   @media ${QUERIES.tablet} {
     display: flex;
-    gap: 24px;
-    justify-content: flex-end;
+    gap: 32px;
   }
-`
 
-const SearchIcon = styled(Icon)`
-  width: 24px;
-  height: 24px;
+  @media ${QUERIES.phone} {
+    gap: 16px;
+  }
 `
 
 const NavLink = styled.a`
@@ -109,6 +119,10 @@ const NavLink = styled.a`
   &:first-of-type {
     color: var(--color-secondary);
   }
+`
+
+const ShoppingBagButton = styled(UnstyledButton)`
+  transform: translateX(-2px);
 `
 
 export default Header

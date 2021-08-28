@@ -45,7 +45,7 @@ const Overlay = styled(DialogOverlay)`
   left: 0;
   right: 0;
   bottom: 0;
-  background: hsl(220deg 6% 40% / 0.8);
+  background: var(--color-backdrop);
   display: flex;
   justify-content: flex-end;
   align-items: stretch;
@@ -62,8 +62,9 @@ const Content = styled(DialogContent)`
 
 const CloseButton = styled(UnstyledButton)`
   position: absolute;
-  top: 16px;
-  right: 16px;
+  top: 10px;
+  right: 0px;
+  padding: 16px;
 `
 
 const Nav = styled.nav`

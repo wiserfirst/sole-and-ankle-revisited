@@ -14,12 +14,12 @@ const ShoeIndex = ({ sortId, setSortId }) => {
     <Wrapper>
       <MainColumn>
         <Header>
-          <TitleWrapper>
+          <div>
             <MobileBreadcrumbs>
               <ShoeBreadcrumbs />
             </MobileBreadcrumbs>
             <Title>Running</Title>
-          </TitleWrapper>
+          </div>
           <SortWrapper>
             <Select
               label="Sort"
@@ -68,18 +68,13 @@ const Header = styled.header`
   align-items: baseline;
 
   @media ${QUERIES.tablet} {
-    align-items: center;
+    align-items: flex-end;
   }
 `
 
 const Title = styled.h2`
   font-size: 1.5rem;
   font-weight: var(--weight-medium);
-`
-
-const TitleWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
 `
 
 const MobileBreadcrumbs = styled.div`
